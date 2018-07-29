@@ -7,10 +7,13 @@ import {
   VNavigationDrawer,
   VFooter,
   VList,
+  VGrid,
   VBtn,
   VIcon,
-  VGrid,
+  VMenu,
   VToolbar,
+  VSubheader,
+  VSwitch,
   transitions
 } from 'vuetify'
 import App from './App.vue'
@@ -21,9 +24,12 @@ Vue.use(Vuetify, {
     VNavigationDrawer,
     VFooter,
     VList,
-    VBtn,
-    VIcon,
     VGrid,
+    VMenu,
+    VSubheader,
+    VBtn,
+    VSwitch,
+    VIcon,
     VToolbar,
     transitions
   },
