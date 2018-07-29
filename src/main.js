@@ -18,10 +18,13 @@ import {
   VCard,
   VTextField,
   VProgressLinear,
+  VDivider,
   transitions
 } from 'vuetify'
 import { routes } from './routes'
+import { storeDef } from './store'
 import App from './App.vue'
+import Vuex from 'vuex'
 
 Vue.use(Vuetify, {
   components: {
@@ -37,6 +40,7 @@ Vue.use(Vuetify, {
     VIcon,
     VToolbar,
     VCard,
+    VDivider,
     VTextField,
     VProgressLinear,
     transitions
@@ -52,16 +56,19 @@ Vue.use(Vuetify, {
   }
 })
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 const router = new VueRouter({
   routes,
   mode:'history'
 })
 
+const store = new Vuex.Store(storeDef)
 
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
   
 })

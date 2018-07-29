@@ -1,14 +1,18 @@
 <template >
 
-  <v-list two-line>
-    <v-subheader >Remote Lists</v-subheader>
-    <hb-remote :remote="remote" v-for="remote in list" :key="remote._id"></hb-remote>
+  <v-list two-line v-if="allRemotes.length > 0 ? true : false">
+    <v-subheader>Remote Lists</v-subheader>
+    <hb-remote :remote="remote" v-for="remote in allRemotes" :key="remote._id"></hb-remote>
   </v-list>
+  <v-card v-else>
+    <v-card-text>Please add remotes to monitor</v-card-text>
+  </v-card>
 
 </template>
 
 <script>
 import HbRemote from './Remote'
+import { mapGetters } from 'vuex'
   export default  {
     name: 'remotes-list',
     props: [],
@@ -18,10 +22,7 @@ import HbRemote from './Remote'
     data() {
       return {
         list:[
-          {_id: 1, alias: 'my alias 1', uri: 'http://localhost:8080'},
-          {_id: 2, alias: 'my alias 2', uri: 'http://localhost:8080'},
-          {_id: 3, alias: 'my alias 3', uri: 'http://localhost:8080'},
-          {_id: 4, alias: 'my alias 4', uri: 'http://localhost:8080'}
+          
         ]
       }
     },
@@ -29,7 +30,7 @@ import HbRemote from './Remote'
 
     },
     computed: {
-
+      ...mapGetters(['allRemotes'])
     },
     components: {
       HbRemote

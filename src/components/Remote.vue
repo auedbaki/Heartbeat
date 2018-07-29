@@ -18,14 +18,16 @@
             <v-list-tile >
               <v-list-tile-title>Edit</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-title>Remove</v-list-tile-title>
+            <v-list-tile @click="removeRemote(remote._id)">
+              <v-list-tile-title >Remove</v-list-tile-title>
             </v-list-tile>
           </v-list>
         </v-menu>
       </v-layout>
     </v-list-tile-action>
+    
   </v-list-tile>
+  
 </template>
 
 <script >
@@ -55,7 +57,9 @@
       }
     },
     methods: {
-
+      removeRemote(id) {
+        this.$store.commit('deleteRemote', id)
+      }
     },
     computed: {
 

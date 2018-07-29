@@ -11,7 +11,7 @@
       </v-btn>
     </v-toolbar>
     <v-container fluid class="pa-0">
-      <v-layout column mt-5>
+      <v-layout column mt-5 mb-4>
           <router-view></router-view>
       </v-layout>
     </v-container>
@@ -20,7 +20,7 @@
         <v-icon>settings</v-icon>  
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn fab top right absolute class="accent"><v-icon>add</v-icon></v-btn>
+      <v-btn fab top right absolute class="accent" :to="{name:'Remote'}"><v-icon>add</v-icon></v-btn>
   </v-footer>
   </v-app>
 </template>
