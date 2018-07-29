@@ -15,7 +15,7 @@
             <v-icon>more_vert</v-icon>
           </v-btn>
           <v-list>
-            <v-list-tile>
+            <v-list-tile >
               <v-list-tile-title>Edit</v-list-tile-title>
             </v-list-tile>
             <v-list-tile>
