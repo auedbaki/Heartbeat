@@ -6,7 +6,7 @@
         <v-card-title>Remote</v-card-title>
         <v-card-text>
           <v-text-field prepend-icon="visibility" label="Alias" suffix=" " autofocus :disabled="loading" v-model="remote.alias"></v-text-field>
-          <v-text-field prepend-icon="cloud" prefix="http://" suffix=" " :disabled="loading" v-model="remote.uri"></v-text-field>
+          <v-text-field prepend-icon="cloud" prefix="http://" suffix=" " :disabled="loading" :value="remote.uri | hideProtocol" @input="val => remote.uri = val"></v-text-field>
           <v-text-field prepend-icon="timer" label="Interval" suffix="s" autofocus :disabled="loading" v-model="remote.interval"></v-text-field>
         </v-card-text>
         <v-card-actions>
@@ -30,7 +30,7 @@
       this.loading = false;
       let id = this.$route.params.id
       if(id) {
-        this.remote = this.$store.getters.remote(id)
+        this.remote = {...this.$store.getters.remote(id)}
       }
     },
     data() {
@@ -55,6 +55,11 @@
     },
     computed: {
 
+    },
+    filters: {
+      hideProtocol(value = '') {
+        return value.replace('http://','')
+      }
     }
 }
 </script>

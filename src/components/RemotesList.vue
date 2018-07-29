@@ -2,7 +2,9 @@
 
   <v-list two-line v-if="allRemotes.length > 0 ? true : false">
     <v-subheader>Remote Lists</v-subheader>
-    <hb-remote :remote="remote" v-for="remote in allRemotes" :key="remote._id"></hb-remote>
+    <transition-group name="list" type="transition">
+      <hb-remote :remote="remote" v-for="remote in allRemotes" :key="remote._id" class="list-item"></hb-remote>
+    </transition-group>
   </v-list>
   <v-card v-else>
     <v-card-text>Please add remotes to monitor</v-card-text>
@@ -38,5 +40,22 @@ import { mapGetters } from 'vuex'
 }
 </script>
 
-<style scoped >
+<style scoped lang="stylus">
+  .list-item{
+    transition: all 1s;
+    display: block;
+  }
+  .list-leave-to {
+    background: red;
+    opacity: 0;
+    transform: translateY(400px)
+  }
+  .list-enter {
+    background: green;
+    opacity: 0;
+    transform: translateY(400px)
+  }
+  .list-leave-active {
+    position: absolute;
+  }
 </style>

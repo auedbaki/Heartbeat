@@ -12,7 +12,10 @@
     </v-toolbar>
     <v-container fluid class="pa-0">
       <v-layout column mt-5 mb-4>
+        <v-slide-y-transition mode="out-in">
           <router-view></router-view>
+        </v-slide-y-transition>
+          
       </v-layout>
     </v-container>
     <v-footer class="pl-1 pr-3" :fixed="true">
